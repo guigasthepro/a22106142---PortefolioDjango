@@ -1,0 +1,33 @@
+
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+
+<div class="wrapper">
+  <h1 class="h1projetos">Tecnologias</h1>
+  <p class="projetos">Algumas das tecnologias existentes em Web:</p>
+
+  <h2>Back-end</h2>
+  <ul>
+    {% for tecnologia in tecnologias %}
+    <li>
+      <strong>{{ tecnologia.nome }}</strong>
+        <br>
+      Acrónimo: {{ tecnologia.acronimo }}
+        <br>
+      Ano de Criação: {{ tecnologia.ano_criacao }}
+        <br>
+      Criador: {{ tecnologia.criador }}
+        <br>
+      <a href="{{ tecnologia.site_oficial }}">Site Oficial</a>
+        <br>
+      Descrição: {{ tecnologia.descricao }}
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+
+
+{% endblock %}
+
+

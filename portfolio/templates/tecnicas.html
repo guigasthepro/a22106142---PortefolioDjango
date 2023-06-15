@@ -1,0 +1,46 @@
+
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+
+<div class="wrapper">
+    <h1>Técnicas e efeitos que gosto:</h1>
+    <ul class="techniques-list">
+        {% for technique in techniques %}
+            <li>{{ technique }}</li>
+        {% endfor %}
+    </ul>
+
+    <h1>Sites que gosto:</h1>
+    <ul class="liked-sites-list">
+        {% for site in liked_sites %}
+            <li><a href="{{ site }}">{{ site }}</a></li>
+        {% endfor %}
+    </ul>
+
+    <h1>Sites que acho maus:</h1>
+    <ul class="disliked-sites-list">
+        {% for site in disliked_sites %}
+            <li><a href="{{ site }}">{{ site }}</a></li>
+        {% endfor %}
+    </ul>
+
+    <h1>Tendências modernas de programação web:</h1>
+    <ul class="modern-trends-list">
+        {% for trend in modern_trends %}
+            <li>{{ trend }}</li>
+        {% endfor %}
+    </ul>
+
+    <h1>Aspectos obsoletos:</h1>
+    <ul class="obsolete-aspects-list">
+        {% for aspect in obsolete_aspects %}
+            <li>{{ aspect }}</li>
+        {% endfor %}
+    </ul>
+</div>
+
+
+{% endblock %}
+
+

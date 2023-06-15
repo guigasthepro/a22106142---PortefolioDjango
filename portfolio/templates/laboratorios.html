@@ -1,0 +1,19 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+
+<div class="wrapper">
+    <h1 class="h1projetos">Laboratórios</h1>
+    <p class="projetos">Laboratórios desenvolvidos no âmbito da cadeira de PW:</p>
+
+    <ul>
+        {% for laboratorio in laboratorios %}
+            <li>
+                <h2>{{ laboratorio.titulo }}</h2>
+                <p>{{ laboratorio.descricao }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}

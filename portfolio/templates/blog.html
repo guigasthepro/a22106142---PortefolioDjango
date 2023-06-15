@@ -1,0 +1,24 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+
+    <h1>Meu Blog</h1>
+
+    {% for post in posts %}
+        <div>
+            <h2>{{ post.titulo }}</h2>
+            <p><strong>Autor:</strong> {{ post.autor }}</p>
+            <p><strong>Data:</strong> {{ post.data }}</p>
+            <p>{{ post.descricao }}</p>
+            {% if post.link %}
+                <p><a href="{{ post.link }}">Link</a></p>
+            {% endif %}
+            {% if post.foto %}
+                <img src="{{ post.foto }}" alt="Imagem do post">
+            {% endif %}
+        </div>
+        <hr>
+    {% endfor %}
+
+
+{% endblock %}

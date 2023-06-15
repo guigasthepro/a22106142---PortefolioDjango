@@ -1,0 +1,38 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+
+
+
+<div class="wrapper">
+    <h1 class="h1projetos">Licenciatura</h1>
+    <p class="projetos">Página Sobre a Licenciatura:</p>
+    <ul class="ulprojetos">
+
+      {% for cadeira in cadeiras %}
+          <li class="liprojetos">
+
+              <strong>{{cadeira.nome}}</strong>
+              <span class="spanprojetos"><b>Ano: </b> {{cadeira.ano}}</span>
+              <span class="spanprojetos"><b>Semestre: </b> {{cadeira.semestre}}</span>
+              <span class="spanprojetos"><b>Número de ECTS: </b> {{cadeira.ects}}</span>
+              <span class="spanprojetos"><b>Ano Letivo Frequentado: </b> {{cadeira.ano_letivo}}</span>
+              <span class="spanprojetos"><b>Ano Letivo Frequentado: </b> {{cadeira.ano_letivo}}</span>
+              <span class="spanprojetos"><b>Tópicos abordados: </b> {{cadeira.topicos_abordados}} </span>
+              <span class="spanprojetos"><b>Ano Letivo Frequentado: </b> {{cadeira.ano_letivo}}</span>
+              <span class="spanprojetos"><b>Linguagens: </b> {% for language in cadeira.linguagens.all %}{{language.nome}} {% endfor %}</span>
+              <span class="spanprojetos"><b>Ano Letivo Frequentado: </b> {{cadeira.ano_letivo}}</span>
+              <span class="spanprojetos"><b>Ranking (0-5): </b> {{cadeira.ranking}}</span>
+              <span class="spanprojetos"><b>Professor Teórica: </b> <a class="aprojetos" href="{{cadeira.docente_teorica.link_lusofona}}"> <i>{{cadeira.docente_teorica.nome}}</i></a></span>
+              <span class="spanprojetos"><b>Professores Práticas: </b> {% for docente_pratica in cadeira.docentes_praticas.all %}<a class="aprojetos" href="{{docente_pratica.link_lusofona}}"> {{docente_pratica.nome}}; </a> {% endfor %}</span>
+              <span class="spanprojetos"><b><a href="{{cadeira.link_cadeira}}"><i>Link da Cadeira</i></a></b></span>
+              <span class="spanprojetos"><b>Projetos:</b> {% for projeto in cadeira.projetos.all %}<a class="aprojetos" href="{% url 'portefolio:projetosescola' %}"> {{projeto.titulo}}</a> {% endfor %}</span>
+
+          </li>
+      {% endfor %}
+
+    </ul>
+</div>
+
+
+{% endblock %}

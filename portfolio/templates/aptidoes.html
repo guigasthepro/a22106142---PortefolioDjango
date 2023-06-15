@@ -1,0 +1,31 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+
+<h1 class="h1projetos">Aptidões e Competências Pessoais</h1>
+
+    <h2 class="h2projetos">Técnicas</h2>
+    <ul>
+        {% for competencia in competencias %}
+            <li>{{ competencia }}</li>
+        {% endfor %}
+    </ul>
+
+
+    <h2>Linguísticas</h2>
+    <ul>
+        {% for lingua in linguas %}
+            <li>{{ lingua.nome }} - Nível: {{ lingua.nivel }} - {{ lingua.certificacao }}</li>
+        {% endfor %}
+    </ul>
+
+    <h1>Interesses</h1>
+    {% for interesse in interesses %}
+        <h2>{{ interesse.titulo }}</h2>
+        <p>{{ interesse.descricao }}</p>
+        <img src="{{ interesse.fotografia }}" alt="{{ interesse.titulo }}">
+        <p>Link: <a href="{{ interesse.link }}">{{ interesse.link }}</a></p>
+    {% endfor %}
+
+
+{% endblock %}
