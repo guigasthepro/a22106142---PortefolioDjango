@@ -50,7 +50,9 @@ def laboratorios_page_view(request):
     context = {'laboratorios': Laboratorio.objects.all()}
     return render(request, 'laboratorios.html', context)
 
-
+def bandas_page_view(request):
+    context = {'bandas': Banda.objects.all()}
+    return render(request, 'banda.html', context)
 def noticias_page_view(request):
     context = {'noticias': Noticia.objects.all()}
     return render(request, 'noticias.html',context)

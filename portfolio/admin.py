@@ -11,7 +11,7 @@ admin.site.register(Interesse)
 admin.site.register(Lingua)
 admin.site.register(Certificados)
 admin.site.register(TecnologiaUsadas)
-
+admin.site.register(Banda)
 #Projetos
 admin.site.register(Projeto)
 admin.site.register(TFC)

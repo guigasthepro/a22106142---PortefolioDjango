@@ -12,6 +12,11 @@ class Publicacao(models.Model):
     def __str__(self):
         return self.titulo[:50]
 
+class Banda(models.Model):
+    nome = models.CharField(max_length=75)
+    estilo = models.CharField(max_length=100)
+    def __str__(self):
+        return self.nome[:75]
 
 class Educacao(models.Model):
     formacao = models.CharField(max_length=40)

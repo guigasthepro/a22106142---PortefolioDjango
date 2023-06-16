@@ -1,0 +1,23 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+
+    <h1 class="h1projetos">Bandas - Defesa</h1>
+    <p class="projetos">Página criada no âmbito de defesa de PW</p>
+<div class="wrapper">
+
+    <ul class="ulprojetos">
+        {% for banda in bandas %}
+            <li class="liprojetos">
+                <strong>{{banda.nome}}</strong>
+                <span class="spanprojetos"><b>Estilo:</b> {{ banda.estilo }}</span>
+            </li>
+
+        {% endfor %}
+    </ul>
+
+</div>
+
+
+
+{% endblock %}

@@ -7,8 +7,8 @@
       <env name="PYTHONUNBUFFERED" value="1" />
       <env name="DJANGO_SETTINGS_MODULE" value="config.settings" />
     </envs>
-    <option name="SDK_HOME" value="C:\Users\Guilherme\.virtualenvs\portefoliodjango-eALtgph5\Scripts\python.exe" />
-    <option name="SDK_NAME" value="Python 3.11 (portefoliodjango-eALtgph5)" />
+    <option name="SDK_HOME" value="C:\Users\Guilherme Simão\AppData\Local\Microsoft\WindowsApps\python3.11.exe" />
+    <option name="SDK_NAME" value="Python 3.11" />
     <option name="WORKING_DIRECTORY" value="" />
     <option name="IS_MODULE_SDK" value="false" />
     <option name="ADD_CONTENT_ROOTS" value="true" />
