@@ -3,35 +3,37 @@
 {% block main %}
 
 <div class="wrapper">
+
     <h1 class="h1projetos">Projetos Pessoais</h1>
     <p class="projetos">Projetos desenvolvidos no âmbito pessoal:</p>
+
     <ul class="ulprojetos">
+        {% for projeto in projetospessoais %}
 
         <li class="liprojetos">
-            <strong class="strongprojetos">Ourivesaria - DOS:</strong>
-            <br>
-            <span class="spanprojetos">Descrição: Programa em consola que permitia supostamente a gestão de uma ourivesaria.</span>
-        </li>
 
-        <li class="liprojetos">
-            <strong class="strongprojetos">Ourivesaria Simão - Forms:</strong>
-            <br>
-            <span class="spanprojetos">Descrição: Segunda versão do projeto, no qual consistia pretendia ter uma interface melhor e mais utilidades.</span>
-        </li>
+            <strong>{{projeto.titulo}}</strong><br>
+            {% if projeto.imagem.url is not None %}
+                <img src="{{projeto.imagem.url}}"><br>
+            {% endif %}
 
-        <li class="liprojetos">
-            <strong class="strongprojetos">GoldYAN:</strong>
-            <br>
-            <span class="spanprojetos">Descrição: Programa desenvolvido em WEB , sucedor da Ourivesaria Simão, programa realizado em web, que pela primeira vez permite a Gestão de uma Ourivesaria</span>
-        </li>
+            <span class="spanprojetos">{{projeto.descricao}}</span><br>
 
-        <li class="liprojetos">
-            <strong class="strongprojetos">OverDrive Mileage APP:</strong>
-            <br>
-            <span class="spanprojetos">Descrição: Programa desenvolvido em WEB , especifico para a OverDrive, com intenção da gestão da kilometragem e peças e carros</span>
+            <span class="spanprojetos"><b>Ano Realização: </b>{{projeto.anoRealizacao}}</span>
+            <span class="spanprojetos"><b>Participantes: </b>{% for participante in projeto.participantes.all %}{{participante.nome}}; {% endfor %}</span>
+            <span class="spanprojetos"><b>Tecnologias: </b>{% for tecnologia in projeto.tecnologias.all %}{{tecnologia.nome}} {% endfor %}</span>
+            {% if projeto.linkGitHub is not None %}
+                <a class="aprojetos" href ="{{projeto.linkGitHub |default_if_none:'#'}}">GitHub</a>
+            {% endif %}
+
         </li>
+        {% endfor %}
     </ul>
+
 </div>
+
+
+
 
 
 {% endblock %}

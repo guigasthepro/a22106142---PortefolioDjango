@@ -6,18 +6,26 @@
     <h1 class="h1projetos">Projetos Escolares</h1>
     <p class="projetos">Projetos desenvolvidos no âmbito escolar:</p>
     <ul class="ulprojetos">
+        {% for projeto in projetos %}
         <li class="liprojetos">
-            <strong>MineSweeper:</strong> Projeto de 1º Ano de FP
-            <br>
-            <span class="spanprojetos">Descrição: Criar um jogo semelhante ao MineSweeper.</span>
+            <strong>{{projeto.titulo}}</strong><br>
+            {% if projeto.imagem.url is not None %}
+                <img src="{{projeto.imagem.url}}"><br>
+            {% endif %}
+            <span class="spanprojetos">{{projeto.descricao}}</span><br>
+            <span class="spanprojetos"><b>Ano Realização: </b>{{projeto.anoRealizacao}}</span>
+            <span class="spanprojetos"><b>Participantes: </b>{% for participante in projeto.participantes.all %}{{participante.nome}}; {% endfor %}</span>
+            <span class="spanprojetos"><b>Tecnologias: </b>{% for tecnologia in projeto.tecnologias.all %}{{tecnologia.nome}} {% endfor %}</span>
+            {% if projeto.linkGitHub is not None %}
+                <a class="aprojetos" href ="{{projeto.linkGitHub |default_if_none:'#'}}">Link GitHub</a>
+            {% endif %}
         </li>
-
-        <li class="liprojetos">
-            <strong>DeisiFlix:</strong> Projeto de 1º Ano de AED
-            <br>
-            <span class="spanprojetos">Descrição: Fazer um projeto semelhante à netflix em consola.</span>
-        </li>
+        {% endfor %}
     </ul>
 </div>
+
+
+
+
 
 {% endblock %}

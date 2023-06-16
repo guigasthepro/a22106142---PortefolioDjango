@@ -9,10 +9,13 @@ admin.site.register(Pessoa)
 admin.site.register(Competencia)
 admin.site.register(Interesse)
 admin.site.register(Lingua)
+admin.site.register(Certificados)
+admin.site.register(TecnologiaUsadas)
 
 #Projetos
 admin.site.register(Projeto)
 admin.site.register(TFC)
+admin.site.register(ProjetoPessoais)
 
 #Programação Web
 admin.site.register(Tecnologia)

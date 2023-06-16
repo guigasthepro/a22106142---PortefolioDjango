@@ -5,26 +5,20 @@
 
 <div class="wrapper">
   <h1 class="h1projetos">Tecnologias</h1>
-  <p class="projetos">Algumas das tecnologias existentes em Web:</p>
+  <p class="projetos">Nesta página estão as técnologias pedidas no enunciado de PW:</p>
 
-  <h2>Back-end</h2>
-  <ul>
-    {% for tecnologia in tecnologias %}
-    <li>
-      <strong>{{ tecnologia.nome }}</strong>
-        <br>
-      Acrónimo: {{ tecnologia.acronimo }}
-        <br>
-      Ano de Criação: {{ tecnologia.ano_criacao }}
-        <br>
-      Criador: {{ tecnologia.criador }}
-        <br>
-      <a href="{{ tecnologia.site_oficial }}">Site Oficial</a>
-        <br>
-      Descrição: {{ tecnologia.descricao }}
-    </li>
-    {% endfor %}
-  </ul>
+    <ul class="ulprojetos">
+        {% for tecnologia  in tecnologiasexistentes %}
+            <li class="liprojetos">
+                <strong> <a class="aprojetos" href="{{tecnologia.link}}" target="_blank">{{tecnologia.nome}} : {{tecnologia.acronimo}}</a></strong>
+                <img src="{{tecnologia.logotipo.url}}" class = "logo_tecnologia"><br>
+                <span class="spanprojetos"><b>Ano Criação: </b>{{tecnologia.anoCriacao}}</span>
+                <span class="spanprojetos"><b>Criador: </b>{{tecnologia.criador}}</span>
+                <span class="spanprojetos">{{tecnologia.descricao}}</span><br>
+            </li>
+        {% endfor %}
+    </ul>
+
 </div>
 
 

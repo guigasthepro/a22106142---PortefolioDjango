@@ -2,23 +2,33 @@
 
 {% block main %}
 
-    <h1>Meu Blog</h1>
+    <h1 class="h1projetos">Blog</h1>
+    <p class="projetos">Blog do meu portefólio</p>
+<div class="wrapper">
 
-    {% for post in posts %}
-        <div>
-            <h2>{{ post.titulo }}</h2>
-            <p><strong>Autor:</strong> {{ post.autor }}</p>
-            <p><strong>Data:</strong> {{ post.data }}</p>
-            <p>{{ post.descricao }}</p>
-            {% if post.link %}
-                <p><a href="{{ post.link }}">Link</a></p>
+    <ul class="ulprojetos">
+        {% for post in posts %}
+            <li class="liprojetos">
+                <strong>{{post.titulo}}</strong>
+                {% if post.imagem.url is not None %}
+                    <img src="{{post.imagem.url}}" class="imagem"><br><br>
+                {% endif %}<br>
+                <span class="spanprojetos">{{post.descricao}}</span><br>
+                {% if post.link is not None %}
+                    <a href="{{post.link |default_if_none:'#'}}">Link</a><br>
+                {% endif %}<br>
+                <span class="spanprojetos">{{post.autor}}</span><br>
+                <span class="spanprojetos">{{post.data}}</span>
+            {% if user.is_authenticated %}
+                <a href="{% url 'portefolio:editarpost' post.id %}" class="aprojetos" style="float: right; margin:auto;">Editar</a>
             {% endif %}
-            {% if post.foto %}
-                <img src="{{ post.foto }}" alt="Imagem do post">
-            {% endif %}
-        </div>
-        <hr>
-    {% endfor %}
+            </li>
+
+        {% endfor %}
+    </ul>
+
+</div>
+
 
 
 {% endblock %}

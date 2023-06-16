@@ -2,30 +2,73 @@
 
 {% block main %}
 
-<h1 class="h1projetos">Aptidões e Competências Pessoais</h1>
+    <h1 class="h1projetos">Sobre mim</h1>
+    <p class="projetos">Aqui poderão ver todos as minhas skills</p>
+    <br>
+    <br>
+    <br>
 
-    <h2 class="h2projetos">Técnicas</h2>
-    <ul>
-        {% for competencia in competencias %}
-            <li>{{ competencia }}</li>
+    <h2 class="h1projetos">Escolaridade</h2>
+    <ul class="ulprojetos">
+          {% for educacao in educacaos %}
+
+          <li class="liprojetos">
+            <img src="{{educacao.logotipo.url}}">
+            <strong>{{educacao.formacao}}</strong>
+            <span class="spanprojetos"><b>Período: </b>{{educacao.periodo}}</span>
+            <span class="spanprojetos"><b>Curso: </b>{{educacao.curso}}</span>
+            <span class="spanprojetos"><b>Local: </b>{{educacao.local}}</span>
+          </li>
+
         {% endfor %}
     </ul>
 
-
-    <h2>Linguísticas</h2>
-    <ul>
-        {% for lingua in linguas %}
-            <li>{{ lingua.nome }} - Nível: {{ lingua.nivel }} - {{ lingua.certificacao }}</li>
-        {% endfor %}
+    <h2 class="h1projetos">Certificados</h2>
+    <ul class="ulprojetos">
+      {% for certificado in certificados %}
+        <li class="liprojetos">
+            <strong>{{certificado.nome}}</strong>
+            <span class="spanprojetos"><b>Entidade: </b>{{certificado.entidade}}</span>
+            <span class="spanprojetos"><b>Nível: </b>{{certificado.emissao}}</span>
+        </li>
+      {% endfor %}
     </ul>
 
-    <h1>Interesses</h1>
-    {% for interesse in interesses %}
-        <h2>{{ interesse.titulo }}</h2>
-        <p>{{ interesse.descricao }}</p>
-        <img src="{{ interesse.fotografia }}" alt="{{ interesse.titulo }}">
-        <p>Link: <a href="{{ interesse.link }}">{{ interesse.link }}</a></p>
-    {% endfor %}
+    <h2 class="h1projetos">Aptidões e competências pessoais</h2>
+    <ul class="ulprojetos">
+      {% for competencia in competencias %}
+        <li class="liprojetos">
+            <strong>{{competencia.titulo}}</strong>
+            <span class="spanprojetos">{{competencia.descricao}}</span>
+            <span class="spanprojetos"><b>Projetos: </b>{% for projeto in competencia.projetos.all %} <a class="aprojetos" href="{% url 'portfolio:projetos' %}"> {{projeto.titulo}}</a> {% endfor %}</span>
+            <span class="spanprojetos"><b>Cadeira: </b>{% for cadeira in competencia.cadeira.all %} <a class="aprojetos" href="{{cadeira.link_cadeira}}">{{cadeira.nome}};</a> {% endfor %}</span>
+        </li>
+      {% endfor %}
+    </ul>
 
+    <h2 class="h1projetos">Línguas</h2>
+    <ul class="ulprojetos">
+      {% for lingua in linguas %}
+        <li class="liprojetos">
+            <strong>{{lingua.nome}}</strong>
+            <span class="spanprojetos"><b>Nível: </b>{{lingua.nivel}}</span>
+        </li>
+      {% endfor %}
+    </ul>
+
+    <h2 class="h1projetos">Interesses e hobbies</h2>
+    <ul class="ulprojetos">
+      {% for interesse in interesses %}
+        <li class="liprojetos">
+            <strong>{{interesse.titulo}}</strong>
+
+            <img src="{{interesse.imagem.url}}" class = "adb">
+            <span class="spanprojetos">{{interesse.descricao}}</span>
+            {% if interesse.link is not None %}
+            <a class="aprojetos" href ="{{interesse.link}}" target="_blank">{{interesse.link}}</a>
+            {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
 
 {% endblock %}

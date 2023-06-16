@@ -23,8 +23,28 @@ class Educacao(models.Model):
     def __str__(self):
         return self.formacao[:50]
 
+class Certificados(models.Model):
+    nome = models.CharField(max_length=40)
+    emissao = models.DateTimeField()
+    entidade = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.nome[:50]
+
 
 class Tecnologia(models.Model):
+    nome = models.CharField(max_length=80)
+    acronimo = models.CharField(max_length=10, blank=True)
+    anoCriacao = models.IntegerField()
+    criador = models.CharField(max_length=80)
+    logotipo = models.ImageField(upload_to='static/portfolio/images')
+    link = models.CharField(max_length=1000, null=True, blank=True)
+    descricao = models.TextField(max_length=1000)
+
+    def __str__(self):
+        return self.nome[:50]
+
+class TecnologiaUsadas(models.Model):
     nome = models.CharField(max_length=80)
     acronimo = models.CharField(max_length=10, blank=True)
     anoCriacao = models.IntegerField()
@@ -47,6 +67,19 @@ class Pessoa(models.Model):
 
 
 class Projeto(models.Model):
+    titulo = models.CharField(max_length=80)
+    descricao = models.CharField(max_length=500)
+    imagem = models.ImageField(upload_to='static/portfolio/images', blank=True)
+    anoRealizacao = models.IntegerField()
+    participantes = models.ManyToManyField(Pessoa, blank=True)
+    linkGitHub = models.CharField(max_length=1000, null=True, blank=True)
+    linkYt = models.CharField(max_length=1000, null=True, blank=True)
+    tecnologias = models.ManyToManyField(Tecnologia, blank=True)
+
+    def __str__(self):
+        return self.titulo[:50]
+
+class ProjetoPessoais(models.Model):
     titulo = models.CharField(max_length=80)
     descricao = models.CharField(max_length=500)
     imagem = models.ImageField(upload_to='static/portfolio/images', blank=True)

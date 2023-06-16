@@ -6,13 +6,13 @@
     <h1 class="h1projetos">Notícias</h1>
     <p class="projetos">Top 10 noticias Medium:</p>
 
-    <ul>
+    <ul class="ulprojetos">
         {% for noticia in noticias %}
-        <li>
-            <h2>{{ noticia.titulo }}</h2>
-            <p>{{ noticia.texto|truncatewords:3 }}</p>
+        <li class="liprojetos">
+            <strong>{{ noticia.titulo }}</strong>
+            <p class="projetos">{{ noticia.descricao }}</p>
             <img src="{{ noticia.imagem_url }}" alt="{{ noticia.titulo }}">
-            <a href="{{ noticia.link }}">Leia mais</a>
+            <a class="aprojetos" href="{{ noticia.link }}">Ler mais</a>
         </li>
         {% endfor %}
     </ul>

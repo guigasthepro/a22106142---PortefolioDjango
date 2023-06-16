@@ -45,6 +45,17 @@
           <li><a href="{% url 'portefolio:blog' %}">Blog</a></li>
           <li><a href="{% url 'portefolio:sobre' %}">Sobre</a></li>
           <li><a href="{% url 'portefolio:contacto' %}">Contacto</a></li>
+            {% if not request.user.is_authenticated %}
+            <li>
+                <a href="{% url 'portefolio:login' %}">Login</a>
+            </li>
+            {% endif %}
+
+            {% if request.user.is_authenticated %}
+            <li>
+                <a href="{% url 'portefolio:logout' %}">Logout</a>
+            </li>
+            {% endif %}
         </ul>
       </nav>
     </header>

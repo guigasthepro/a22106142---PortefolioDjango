@@ -3,14 +3,16 @@
 {% block main %}
 
 <div class="wrapper">
+
     <h1 class="h1projetos">Laboratórios</h1>
     <p class="projetos">Laboratórios desenvolvidos no âmbito da cadeira de PW:</p>
 
-    <ul>
+    <ul class="ulprojetos">
         {% for laboratorio in laboratorios %}
-            <li>
-                <h2>{{ laboratorio.titulo }}</h2>
-                <p>{{ laboratorio.descricao }}</p>
+            <li class="liprojetos">
+                <strong>{{ laboratorio.titulo }}</strong>
+                <span class="spanprojetos">{{ laboratorio.descricao }}</span>
+                <span class="spanprojetos"><b>Link:</b> <a class="aprojetos" href="{{ laboratorio.link }}"> GitHub </a></span>
             </li>
         {% endfor %}
     </ul>
