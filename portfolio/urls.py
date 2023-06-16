@@ -21,7 +21,7 @@ urlpatterns = [
     path('novoBlog', views.novoBlog_view, name='novoBlog'),
     path('tecnologiasexistentes', views.tecnologiasexistentes_page_view, name='tecnologiasexistentes'),
     path('laboratorios', views.laboratorios_page_view, name='laboratorios'),
-    path('editarpost/<int:blog_id>', views.laboratorios_page_view, name='editarpost'),
-    path('apagarpost/<int:blog_id>', views.laboratorios_page_view, name='apagarpost')
+    path('editarpost/<int:blog_id>', views.editarPost_page_view, name='editarpost'),
+    path('apagarpost/<int:blog_id>', views.apagarPost_page_view, name='apagarpost')
 
 ]

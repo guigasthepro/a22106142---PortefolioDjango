@@ -1,5 +1,5 @@
     <h3>Editar Publicação:</h3>
-    <form action="{% url 'portfolio:blog_edita' blog_id %}" method="POST">
+    <form action="{% url 'portefolio:editarpost' blog_id %}" method="POST">
         {% csrf_token %}
         {{ form.as_p }}
 
