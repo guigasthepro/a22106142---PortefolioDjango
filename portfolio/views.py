@@ -104,14 +104,12 @@ def apagarPost_page_view(request, blog_id):
 
 @login_required
 def editarPost_page_view(request, blog_id):
-
     blog = Publicacao.objects.get(id=blog_id)
     form = PublicacaoForm(request.POST or None, instance=blog)
-
     if form.is_valid():
         form.save()
         return HttpResponseRedirect(reverse('portefolio:blog'))
 
     context = {'form': form, 'blog_id': blog_id,}
 
-    return render(request, 'editarpost.html')
+    return render(request, 'editarpost.html',context)
