@@ -39,6 +39,15 @@ def aptidoes_page_view(request):
     return render(request, 'aptidoes.html', context)
 
 
+def novoBlog_view(request):
+    form = PublicacaoForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portefolio:blog'))
+
+    context = {'form': form}
+    return render(request, 'novoBlog.html', context)
+
 def blog_page_view(request):
     context = {'posts': Publicacao.objects.all()}
     return render(request, 'blog.html', context)

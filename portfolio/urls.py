@@ -18,7 +18,7 @@ urlpatterns = [
     path('noticias', views.noticias_page_view, name='noticias'),
     path('tecnicas', views.tecnicas_page_view, name='tecnicas'),
     path('bandas', views.bandas_page_view, name='bandas'),
-
+    path('novoBlog', views.novoBlog_view, name='novoBlog'),
     path('tecnologiasexistentes', views.tecnologiasexistentes_page_view, name='tecnologiasexistentes'),
     path('laboratorios', views.laboratorios_page_view, name='laboratorios'),
     path('editarpost/<int:blog_id>', views.laboratorios_page_view, name='editarpost'),
